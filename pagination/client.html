@@ -4,12 +4,33 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <script src="./src/index.js"></script>
   </head>
   <body>
-    <form action="/page2" method="post" enctype="multipart/form-data">
-      <button type="submit" id="next">next</button>
-      <button type="submit" id="previous">previous</button>
-    </form>
+    <div class="wrapper row2">
+      <div id="container" class="clear">
+        <section>
+          <div id="browse-wrap">
+            <div id="browse-left_col">
+              <h3>Browse by:</h3>
+              <br />
+              <form action="browse/1" method="post">
+                //form inputs and such here
+                <input type="submit" class="button" value="Browse" />
+              </form>
+            </div>
+            <div id="browse-right_col">
+              //table of results here
+              <p style="text-align: right">
+                <a
+                  href="#"
+                  onclick="document.forms[0].attr('action', 'browse/<%=nextpage%>').submit();return false;"
+                  >Next 100 &#8594;</a
+                >
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
   </body>
 </html>
