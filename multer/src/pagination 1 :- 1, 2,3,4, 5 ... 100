@@ -1,0 +1,5 @@
+pagination 1 :- 1, 2,3,4, 5 ... 100
+
+pagination 2 :- < Next, Previous >
+
+pagination 3 :- scroll pagination

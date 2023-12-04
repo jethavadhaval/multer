@@ -12,4 +12,13 @@ app.listen(port, () => {
   dbConnection();
 });
 
+// console.log("typeof document: ", typeof document);
+// if (typeof document !== "undefined") {
+//   let input = document.getElementById("next");
+//   console.log("input: ", input);
+//   let element = document.querySelector(".class-name");
+
+//   // Manipulating the DOM here
+// }
+
 app.use("/", userRouter);
