@@ -19,7 +19,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 
 server.listen(port, () => {
-  log(`server listening on http://localhost:${port}`);
+  console.log(`server listening on http://localhost:${port}`);
 });
 
 const io = new Server(server);
