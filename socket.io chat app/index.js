@@ -21,10 +21,16 @@ const io = new Server(server);
 const bot = "bot";
 
 io.on("connection", (socket) => {
-  socket.on("joinRoom", (username, room) => {
+  socket.on("joinRoom", ({ username, room }) => {
+    const userJoined = userJoin(socket.id, username, room);
+
+    socket.join(userJoined.room);
+
     socket.emit("message", formatMessage(bot, "welcome to chatcord"));
 
-    socket.broadcast.emit(formatMessage(bot, "user has join chat"));
+    socket.broadcast
+      .to(userJoined.room)
+      .emit(formatMessage(bot, `${username} has join chat`));
   });
 
   socket.on("chatMsg", (msg) => {
@@ -35,5 +41,3 @@ io.on("connection", (socket) => {
     io.emit(formatMessage(bot, "user has left chat"));
   });
 });
-
-// app.use("/", userRouter);
